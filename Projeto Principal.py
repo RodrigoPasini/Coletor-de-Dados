@@ -31,6 +31,8 @@ for i in aluno.keys():
         print(f'{i:<3}', end='')
     elif count == 5:
         print(f'{i:<6}', end='')
+    elif count == 6:
+        print(f'{i:<20}', end='')
     else:
         print(f'{i:<15}', end='')
     count += 1
@@ -43,7 +45,9 @@ for k, v in enumerate(alunos): # ORDER THE KEYS
         if count == 4:
             print(f'{str(d):<3}', end='')
         elif count == 5:
-            print(f'{str(d):<6}', end='')        
+            print(f'{str(d):<6}', end='')
+        elif count == 6:
+            print(f'{str(d):<20}')
         else:
             print(f'{str(d):<15}', end='')
         count += 1

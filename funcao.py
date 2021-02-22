@@ -28,15 +28,15 @@ def leiaSN(msg):
     ok=False
     valor=str()
     while True:
-        aluno['Segundo Nome']=str(input(msg))
-        if aluno['Segundo Nome'].isnumeric():
+        valor=str(input(msg))
+        if valor.isnumeric():
             ok = False
             print('\033[0;31mERRO! Informação inválida.\033[m')
-        elif aluno['Segundo Nome'].isspace():
+        elif valor.isspace():
             ok = False
             print('\033[0;31mERRO! Informação inválida.\033[m')
         else:
-            valor = str(aluno['Segundo Nome'])
+            #valor = str(aluno['Segundo Nome'])
             ok = True
         if ok:
             break
@@ -64,17 +64,14 @@ def leiaSobre(msg):
 
 def leiaCidade(msg):
     ok = False
-    valor = 0
+    valor = str()
     while True:
-        aluno['Cidade'] = str(input(msg))
-        if aluno['Cidade'].isspace():
-            ok = False
-            print('\033[0;31mERRO! Informação inválida.\033[m')
-        elif aluno['Cidade'].isnumeric():
+        valor = trata_string(str(input(msg)))
+        str_compara = valor.replace(" ", "")
+        if len(str_compara) == 0 or str_compara.isnumeric():
             ok = False
             print('\033[0;31mERRO! Informação inválida.\033[m')
         else:
-            valor = str(aluno['Cidade'])
             ok = True
         if ok:
             break
@@ -98,9 +95,9 @@ def leiaIdade(msg):
     ok = False
     valor = 0
     while True:
-        aluno['Idade'] = str(input(msg))
-        if aluno['Idade'].isnumeric():
-            valor = str(aluno['Idade'])
+        valor = str(input(msg))
+        if valor.isnumeric():
+            #valor = str(aluno['Idade'])
             ok = True
         else:
             print('\033[0;31mERRO! Digite um nome válido.\033[m')
@@ -111,7 +108,7 @@ def leiaIdade(msg):
 
 def redeSocial(msg):
     ok=False
-    valor=0
+    valor=str()
     while True:
         rs=str(input(msg)).upper()  # 'Facebook, Linkedin, Instagram'
         #------- NOVO
@@ -132,13 +129,12 @@ def redeSocial(msg):
             ok = True
         if ok:
             break
-    # print(list(valor))
     return list(valor)  #['Facebook,Linkedin,Instagram']
 
 
 def gruporedeSocial(msg):
     ok=False
-    valor=0
+    valor=str()
     while True:
         grupors=str(input(msg))
         if grupors.isspace():
@@ -157,14 +153,19 @@ def gruporedeSocial(msg):
 
 def leiagrs(msg):
     ok=False
-    valor=0
+    valor=str()
     while True:
-        grs=str(input(msg))
-        if grs.isalpha():       #NOTE: essa funcao nao deixa entrar espaço ou virgula, somente aceita letras. Como faz pra entrar mais de um grupo?
-            valor=str(grs)      #       recomendo usar a mesma logica da entrada das redes sociais
-            ok=True
+        grs = str(input(msg)).upper()
+        grs=grs.replace(' ','')
+        if grs.isspace():
+            ok = False
+            print('\033[0;31mERRO! Informação inválida.\033[m')
+        elif grs.isnumeric():
+            ok = False
+            print('\033[0;31mERRO! Informação inválida.\033[m')
         else:
-            print('\033[0;31mERRO! Digite um nome válido.\033[m')
+            valor = grs.split(',')
+            ok=True
         if ok:
             break
-    return valor
+    return list(valor)
