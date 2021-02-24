@@ -8,6 +8,25 @@ def trata_string(msg):
     return msg.lstrip().rstrip()
 
 
+def pega_maiores_tamanhos(header, item_list):
+    tamanhos = [0,0,0,0,0,0,0,0]
+
+    count = 0
+    for i in header.keys():
+        tamanhos[count] = len(i) + 2
+        count += 1
+
+    print(tamanhos)
+
+    for k, v in enumerate(item_list): # ORDER THE KEYS
+        count = 0
+        for d in v.values():
+            if(len(d) >= tamanhos[count]):
+                tamanhos[count] = len(d) + 2
+            count += 1
+    return tamanhos
+
+
 def leiaPN(msg):
     ok=False
     valor=str()
@@ -48,7 +67,7 @@ def leiaSobre(msg):
     valor=str()
     while True:
         valor = trata_string(str(input(msg)))
-        str_compara = valor.replace(" ", "") 
+        str_compara = valor.replace(" ", "")
         if len(str_compara) == 0 or str_compara.isnumeric():
             ok = False
             print('\033[0;31mERRO! Informação inválida.\033[m')

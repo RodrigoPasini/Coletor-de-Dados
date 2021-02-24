@@ -18,7 +18,7 @@ def socialNetwork(msg):
                     break
                 # else:
                 #     if(count >= 1):
-                #         rs[count] = "                                                                                                 " + rs[count] 
+                #         rs[count] = "                                                                                                 " + rs[count]
                 #     count += 1
                     # muda nome pra curto
             if not elemento_invalido:           # verifica se a lista esta sem elementos invalidos
@@ -27,7 +27,7 @@ def socialNetwork(msg):
             break
         else:
             print('\033[0;31mERRO! Responda apenas S ou N.\033[m')  # ERROR MESSAGE IF WAS NOT PRESSED S OR N
-    return '\n'.join(rs)               # queremos retornar a lista em forma de string
+    return ','.join(rs)               # queremos retornar a lista em forma de string
 
 
 def groupSocialNetwork(msg):
@@ -48,7 +48,7 @@ def groupSocialNetwork(msg):
         else:
             print('\033[0;31mERRO! Responda apenas S ou N.\033[m')  # ERROR MESSAGE IF WAS NOT PRESSED S OR N
             elemento_invalido=True
-        return '\n'.join(grs)
+        return ','.join(grs)
 
 
 
